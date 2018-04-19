@@ -5,25 +5,19 @@ long long a = 0;
 long long b = 0;
 long long c, d, e, temp;
 long long f = 0;
-long long length(long long n)
-{
-    if (n == 0)
-    {
-        return 0;
-    }
-    return floor( log10( llabs( n ) ) ) + 1;
-}
+
+//This is like a log10 but returns 0 if the length isn't valid. Eaiser to use.
 long long lengtha(long long x)
 {
     if (x >= 1000000000000000 && x < 10000000000000000)
     {
         return 16;
     }
-    if (x >= 100000000000000)
+    else if (x >= 100000000000000)
     {
         return 15;
     }
-    if (x >= 1000000000000 && x < 10000000000000)
+    else if (x >= 1000000000000 && x < 10000000000000)
     {
         return 13;
     }
@@ -32,6 +26,7 @@ long long lengtha(long long x)
 
 int main(void)
 {
+    //Stores the credit card number. This was made when the coding class provided a library to make input easier.
     long long number = get_long_long("Number: ");
     unsigned int length = lengtha(number);
     if (length == 0)
